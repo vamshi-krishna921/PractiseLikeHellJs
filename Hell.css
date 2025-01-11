@@ -16,3 +16,7 @@ html,body{
     font-size: 1.1vw;
     color: rgb(210, 210, 210);
 }
+
+.makeRed{
+    color: red;
+}
