@@ -17,3 +17,22 @@ classlist.classList.add('makeRed');
 //* Using style 
 let para = document.querySelector('.para');
 para.style.color = "yellow";
+
+//*  Create a button and when button is clicked change the text in paragraph
+let changePara = document.querySelector('.button1');
+let onClickcChangePara = document.querySelector('.Q1');
+changePara.addEventListener("click", function(){
+    onClickcChangePara.textContent = "The button is clicked and para is changed";
+})
+
+//* Create a page with 2 images and button. When button is clicked swap the source attribute of both the images
+let srcChange1 = document.getElementById("srcChange1");
+let srcChange2 = document.getElementById("srcChange2");
+let srcChangeclick = document.getElementById("srcChangeclick");
+srcChangeclick.addEventListener("click", function(){
+    let image1 = srcChange1.src;
+    let image2 = srcChange2.src;
+    srcChange1.src = image2;
+    srcChange2.src = image1;
+
+})
