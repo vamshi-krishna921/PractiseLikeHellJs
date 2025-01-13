@@ -36,3 +36,25 @@ srcChangeclick.addEventListener("click", function(){
     srcChange2.src = image1;
 
 })
+
+//* Create a form with input fields and a submit button. Use Javascrpit to validate the form and display an error msg if the input is invalid.
+let form = document.querySelector("form");
+let inpts = document.querySelectorAll('input[type="text"]');
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    document.querySelectorAll('.error').forEach(elem => elem.remove());
+    for (var i = 0; i < inpts.length; i++) {
+        let input = inpts[i];
+        let label = document.createElement("label");
+        label.textContent = "Error";
+        label.classList.add("error");  
+        if (input.value.trim() === "") {
+            input.insertAdjacentElement('beforebegin', label);  // Adds the error label after the input element
+        }
+    }
+});
+
+
+
+
