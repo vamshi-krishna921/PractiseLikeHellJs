@@ -118,35 +118,89 @@ Stop.addEventListener("click", function () {
 //   text3.style.display = "block";
 // })
 
-function clearText (){
-  let texts = document.querySelectorAll('.texts');
+function clearText() {
+  let texts = document.querySelectorAll(".texts");
   texts.forEach((elem) => {
     elem.style.display = "none";
-  })
+  });
 }
 
 //! Method - 1
-let divs = document.querySelectorAll('.divs');
-let texts = document.querySelectorAll('.texts');
+let divs = document.querySelectorAll(".divs");
+let texts = document.querySelectorAll(".texts");
 text1.style.display = "block";
-divs.forEach((curDiv,index) => {
-  curDiv.addEventListener("click", function(){
+divs.forEach((curDiv, index) => {
+  curDiv.addEventListener("click", function () {
     clearText();
     texts[index].style.display = "block";
-  })
-})
+  });
+});
 
 //* Display a progress bar that updates in real-time, showing the progress of a task, download (or) form submission.
-let progress = document.querySelector('.progress');
+let progress = document.querySelector(".progress");
 let count = 0;
-let downloadCompleted = document.querySelector('.downloadCompleted');
-let timeOut = setInterval(function(){
-  if(count === 100){
+let downloadCompleted = document.querySelector(".downloadCompleted");
+let timeOut = setInterval(function () {
+  if (count === 100) {
     downloadCompleted.style.display = "block";
     clearInterval(timeOut);
+  } else {
+    count++;
+    progress.style.width = count + "%";
   }
-  else{
-  count++;
-  progress.style.width = count + '%';
-}
-},100);
+}, 100);
+
+//* Create a search bar that displays live search results as users type, updating the results without requiring a full page reload.
+let search = document.getElementById("Search");
+let data = [
+  {
+    Name: "Jai",
+    src: "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    Name: "shree",
+    src: "https://plus.unsplash.com/premium_photo-1683817138631-c5fb4990d01d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D",
+  },
+  {
+    Name: "ram",
+    src: "https://plus.unsplash.com/premium_photo-1683817397861-7cd0085e56f4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    Name: "krishna",
+    src: "https://images.unsplash.com/photo-1441786485319-5e0f0c092803?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fE1hbnxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    Name: "jaishree",
+    src: "https://images.unsplash.com/photo-1456327102063-fb5054efe647?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D",
+  },
+  {
+    Name: "Jaikrishna",
+    src: "https://images.unsplash.com/photo-1630827020718-3433092696e7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
+let people = document.querySelector(".people");
+let person = "";
+data.forEach((elem) => {
+  person += `<div class="person">
+          <div class="img">
+            <img src=${elem.src} alt="This is an image" />
+          </div>
+            <h4>${elem.Name}</h4>
+        </div>`;
+});
+people.innerHTML = person;
+search.addEventListener("input", function () {
+  var searchPersons = data.filter((elem) => {
+    return elem.Name.startsWith(search.value);
+  });
+  let matchingPersons = "";
+  searchPersons.forEach((elem) => {
+    matchingPersons += `<div class="person">
+            <div class="img">
+              <img src=${elem.src} alt="This is an image" />
+            </div>
+              <h4>${elem.Name}</h4>
+          </div>`;
+  })
+  people.innerHTML = matchingPersons;
+});

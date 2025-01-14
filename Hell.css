@@ -49,7 +49,7 @@ body {
 #elem {
   width: 100%;
   height: 20%;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   padding-top: 1vh;
   display: flex;
   justify-content: center;
@@ -68,8 +68,54 @@ body {
       transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
     }
     & .downloadCompleted {
-        font-weight: 500;
-        display: none;
+      font-weight: 500;
+      display: none;
+    }
+  }
+}
+
+.box1 {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & #Search {
+    width: 50vw;
+    height: 5vh;
+    border-radius: 8px;
+    font-size: 1.2vw;
+    outline-color: blue;
+    margin-bottom: 1vh;
+  }
+  & .people {
+    width: 100%;
+    height: 80%;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    & .person {
+      display: flex;
+      width: 8%;
+      justify-content: center;
+      align-items: center;
+
+      flex-direction: column;
+      /* background-color: #e70202; */
+      & .img {
+        width: 100%;
+        background-color: blanchedalmond;
+        border-radius: 50%;
+        overflow: hidden;
+        & img {
+          width: 100%;
+          aspect-ratio: 1;
+          object-fit: cover;
+        }
+      }
     }
   }
 }
