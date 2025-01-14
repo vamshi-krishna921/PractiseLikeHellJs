@@ -77,3 +77,20 @@ remove.addEventListener("click", function () {
   }
   textAdder.value = "";
 });
+
+//* Create a countdown Timer it starts when button is clicked and stops when stops when stop button is clciked.
+let Start = document.getElementById("start");
+let Stop = document.getElementById("stop");
+let h4 = document.querySelector("#timer");
+let time;
+Start.addEventListener("click", function () {
+  var count = 0;
+  Start.insertAdjacentElement("beforebegin", h4);
+  time = setInterval(() => {
+    h4.textContent = count;
+    count++;
+  }, 1000);
+});
+Stop.addEventListener("click", function () {
+  clearInterval(time);
+});
