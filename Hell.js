@@ -135,3 +135,18 @@ divs.forEach((curDiv,index) => {
     texts[index].style.display = "block";
   })
 })
+
+//* Display a progress bar that updates in real-time, showing the progress of a task, download (or) form submission.
+let progress = document.querySelector('.progress');
+let count = 0;
+let downloadCompleted = document.querySelector('.downloadCompleted');
+let timeOut = setInterval(function(){
+  if(count === 100){
+    downloadCompleted.style.display = "block";
+    clearInterval(timeOut);
+  }
+  else{
+  count++;
+  progress.style.width = count + '%';
+}
+},100);
