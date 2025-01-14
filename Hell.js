@@ -59,13 +59,21 @@ let add = document.getElementById("add");
 let remove = document.getElementById("remove");
 let textAdder = document.getElementById("textAdder");
 let ul = document.querySelector("ul");
-
+let li;
 add.addEventListener("click", function () {
   if (textAdder.value.trim() === "") {
   } else {
-    let li = document.createElement("li");
+    li = document.createElement("li");
     li.textContent = textAdder.value;
     ul.appendChild(li);
     textAdder.value = "";
   }
+});
+remove.addEventListener("click", function () {
+  for (elem of ul.children) {
+    if (textAdder.value === elem.textContent) {
+      ul.removeChild(elem);
+    }
+  }
+  textAdder.value = "";
 });
