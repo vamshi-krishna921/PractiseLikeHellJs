@@ -94,3 +94,44 @@ Start.addEventListener("click", function () {
 Stop.addEventListener("click", function () {
   clearInterval(time);
 });
+
+//**Create a tabbed interface when clicking on tabs display different content sections without page reloading.
+
+//! Method - 1
+// let div1 = document.querySelector('#div1');
+// let div2 = document.querySelector('#div2');
+// let div3 = document.querySelector('#div3');
+// let text1 = document.querySelector('#text1');
+// let text2 = document.querySelector('#text2');
+// let text3 = document.querySelector('#text3');
+// text1.style.display = "block";
+// div1.addEventListener("click", function(){
+//   clearText();
+//   text1.style.display = "block";
+// })
+// div2.addEventListener("click", function(){
+//   clearText();
+//   text2.style.display = "block";
+// })
+// div3.addEventListener("click", function(){
+//   clearText();
+//   text3.style.display = "block";
+// })
+
+function clearText (){
+  let texts = document.querySelectorAll('.texts');
+  texts.forEach((elem) => {
+    elem.style.display = "none";
+  })
+}
+
+//! Method - 1
+let divs = document.querySelectorAll('.divs');
+let texts = document.querySelectorAll('.texts');
+text1.style.display = "block";
+divs.forEach((curDiv,index) => {
+  curDiv.addEventListener("click", function(){
+    clearText();
+    texts[index].style.display = "block";
+  })
+})
