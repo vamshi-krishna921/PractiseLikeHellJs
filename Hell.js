@@ -53,3 +53,19 @@ form.addEventListener("submit", function (event) {
     }
   }
 });
+
+//* Create an unordered list. Allow users to add and remove list items dynamically.
+let add = document.getElementById("add");
+let remove = document.getElementById("remove");
+let textAdder = document.getElementById("textAdder");
+let ul = document.querySelector("ul");
+
+add.addEventListener("click", function () {
+  if (textAdder.value.trim() === "") {
+  } else {
+    let li = document.createElement("li");
+    li.textContent = textAdder.value;
+    ul.appendChild(li);
+    textAdder.value = "";
+  }
+});
