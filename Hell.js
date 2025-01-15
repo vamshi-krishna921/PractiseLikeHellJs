@@ -125,7 +125,7 @@ function clearText() {
   });
 }
 
-//! Method - 1
+//! Method - 2
 let divs = document.querySelectorAll(".divs");
 let texts = document.querySelectorAll(".texts");
 text1.style.display = "block";
@@ -201,6 +201,28 @@ search.addEventListener("input", function () {
             </div>
               <h4>${elem.Name}</h4>
           </div>`;
-  })
+  });
   people.innerHTML = matchingPersons;
+});
+
+//*  Build a character counter for a text area or input field, which updates in real-time as the types and enforces a character limit.
+let counter = document.getElementById("counter");
+let textarea = document.getElementById("textarea");
+textarea.addEventListener("input", function () {
+  if (textarea.value.length >= 100) {
+    counter.textContent = 100;
+    textarea.value = textarea.value.substring(0, 100);
+  } else {
+    counter.textContent = textarea.value.length;
+  }
+});
+
+//* Show a progress bar which shows the how much page has been scrolled
+let progressBar = document.querySelector(".scroll");
+window.addEventListener("scroll", function () {
+  let scrollY = Math.round(window.scrollY);
+  var documentHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+  var scrollPercentage = (scrollY / documentHeight) * 100;
+  progressBar.style.width = scrollPercentage + "%";
 });
