@@ -126,3 +126,50 @@ body {
     }
   }
 }
+#simpleTodo {
+  text-align: center;
+}
+#todoInsert {
+  width: 100vw;
+  height: fit-content;
+  /* background-color: rgb(255, 82, 255); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  & #todoInput {
+    width: 50vw;
+    height: 6vh;
+    border-radius: 10px;
+    outline-color: rgb(89, 211, 255);
+    border: none;
+    background-color: #e0e0e0;
+    font-size: 1vw;
+  }
+  & #enter {
+    padding: 1vw;
+    font-size: 1vw;
+    border-radius: 10px;
+    border: 1px solid rgb(89, 211, 255);
+    background-color: rgb(89, 211, 255);
+    color: #000000;
+  }
+}
+.todoElem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 20vh;
+  & p{
+    font-size: 1.2vw;
+    font-weight: 400;
+    margin: 0.2vw;
+    cursor: pointer;
+  }
+  & h2{
+    padding-bottom: 6px;
+    display: none;
+  }
+}

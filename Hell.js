@@ -226,3 +226,28 @@ window.addEventListener("scroll", function () {
   var scrollPercentage = (scrollY / documentHeight) * 100;
   progressBar.style.width = scrollPercentage + "%";
 });
+
+//* Simple TODO
+
+let todoInput = document.querySelector('#todoInput');
+let enter = document.querySelector('#enter');
+let todoElem = document.querySelector('.todoElem');
+let todoText = document.querySelector('.todoText');
+enter.addEventListener("click", () =>{
+  addTodo();
+})
+function addTodo(){
+  let p = document.createElement('p');
+  p.textContent = todoInput.value;
+  p.classList = "todoText";
+  todoElem.appendChild(p);
+  document.querySelector('.h2').style.display = "block";
+  todoInput.value = "";
+}
+todoElem.addEventListener("click", (event) =>{
+  let removeElem = event.target;
+  removeElem.remove();
+  if(todoElem.firstElementChild.nextElementSibling === null ){
+  document.querySelector('.h2').style.display = "none";
+  }
+})
