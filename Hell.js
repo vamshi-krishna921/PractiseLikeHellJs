@@ -251,3 +251,16 @@ todoElem.addEventListener("click", (event) =>{
   document.querySelector('.h2').style.display = "none";
   }
 })
+
+//* Keyboard Events
+let keyevent = document.getElementById("keyevent");
+let keyPressed = document.getElementById("keyPressed");
+let keyCode = document.getElementById("keyCode");
+let charCode = document.getElementById("charCode");
+let keyType = document.getElementById("keyType");
+keyevent.addEventListener("keydown", (Event) => {
+keyPressed.textContent = `key Pressed : ${Event.key}`;
+keyCode.textContent = `key Code : ${Event.code}`;
+charCode.textContent = `char Code : ${Event.key.charCodeAt(0)}`;
+keyType.textContent = `key Type : ${Event.type}`;
+})

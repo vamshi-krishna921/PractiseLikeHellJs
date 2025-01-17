@@ -162,14 +162,45 @@ body {
   align-items: center;
   width: 100vw;
   height: 20vh;
-  & p{
+  & p {
     font-size: 1.2vw;
     font-weight: 400;
     margin: 0.2vw;
     cursor: pointer;
   }
-  & h2{
+  & h2 {
     padding-bottom: 6px;
     display: none;
+  }
+}
+#keyEvents {
+  width: 100vw;
+  height: 50vh;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & .keyboardEvents {
+    width: 50%;
+    height: 80%;
+    /* background-color: #dadada; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    & #keyevent {
+      width: 50%;
+      height: 6vh;
+      border-radius: 10px;
+      outline-color: rgb(89, 211, 255);
+      border: none;
+      background-color: #e0e0e0;
+      font-size: 1.2vw;
+    }
+    & h3{
+      color: rgb(255, 255, 255);
+    }
   }
 }
