@@ -229,28 +229,28 @@ window.addEventListener("scroll", function () {
 
 //* Simple TODO
 
-let todoInput = document.querySelector('#todoInput');
-let enter = document.querySelector('#enter');
-let todoElem = document.querySelector('.todoElem');
-let todoText = document.querySelector('.todoText');
-enter.addEventListener("click", () =>{
+let todoInput = document.querySelector("#todoInput");
+let enter = document.querySelector("#enter");
+let todoElem = document.querySelector(".todoElem");
+let todoText = document.querySelector(".todoText");
+enter.addEventListener("click", () => {
   addTodo();
-})
-function addTodo(){
-  let p = document.createElement('p');
+});
+function addTodo() {
+  let p = document.createElement("p");
   p.textContent = todoInput.value;
   p.classList = "todoText";
   todoElem.appendChild(p);
-  document.querySelector('.h2').style.display = "block";
+  document.querySelector(".h2").style.display = "block";
   todoInput.value = "";
 }
-todoElem.addEventListener("click", (event) =>{
+todoElem.addEventListener("click", (event) => {
   let removeElem = event.target;
   removeElem.remove();
-  if(todoElem.firstElementChild.nextElementSibling === null ){
-  document.querySelector('.h2').style.display = "none";
+  if (todoElem.firstElementChild.nextElementSibling === null) {
+    document.querySelector(".h2").style.display = "none";
   }
-})
+});
 
 //* Keyboard Events
 let keyevent = document.getElementById("keyevent");
@@ -259,8 +259,19 @@ let keyCode = document.getElementById("keyCode");
 let charCode = document.getElementById("charCode");
 let keyType = document.getElementById("keyType");
 keyevent.addEventListener("keydown", (Event) => {
-keyPressed.textContent = `key Pressed : ${Event.key}`;
-keyCode.textContent = `key Code : ${Event.code}`;
-charCode.textContent = `char Code : ${Event.key.charCodeAt(0)}`;
-keyType.textContent = `key Type : ${Event.type}`;
-})
+  keyPressed.textContent = `key Pressed : ${Event.key}`;
+  keyCode.textContent = `key Code : ${Event.code}`;
+  charCode.textContent = `char Code : ${Event.key.charCodeAt(0)}`;
+  keyType.textContent = `key Type : ${Event.type}`;
+});
+
+//* Digital watch project
+let timer = document.querySelector(".time");
+const showTime = () => {
+  let curTime = new Date().toLocaleTimeString();
+  timer.textContent = `${curTime}`;
+};
+showTime();
+setInterval(() => {
+  showTime();
+}, 1000);
