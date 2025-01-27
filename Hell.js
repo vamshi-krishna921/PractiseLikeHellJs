@@ -275,3 +275,5 @@ showTime();
 setInterval(() => {
   showTime();
 }, 1000);
+
+//* Stop Timer
