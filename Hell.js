@@ -78,7 +78,7 @@ remove.addEventListener("click", function () {
   textAdder.value = "";
 });
 
-//* Create a countdown Timer it starts when button is clicked and stops when stops when stop button is clciked.
+//* Create a countdown Timer it starts when button is clicked and stops when stops when stop button is clicked.
 let Start = document.getElementById("start");
 let Stop = document.getElementById("stop");
 let h4 = document.querySelector("#timer");
@@ -277,3 +277,34 @@ setInterval(() => {
 }, 1000);
 
 //* Stop Timer
+let Start1 = document.querySelector(".Start1");
+let Stop1 = document.querySelector(".Stop1");
+let Reset1 = document.querySelector(".Reset1");
+let GetTime = document.querySelector(".GetTime");
+let ClearTime = document.querySelector(".ClearTime");
+let stopValues = document.querySelector(".stopValues");
+let countTime = document.querySelector(".countTime");
+let startCount = 0;
+let intervalId;
+Start1.addEventListener("click", () => {
+  intervalId = setInterval(() => {
+    startCount++;
+    countTime.textContent = startCount;
+  }, 1000);
+});
+Stop1.addEventListener("click", () => {
+  clearInterval(intervalId);
+});
+Reset1.addEventListener("click", () => {
+  startCount = 0;
+  countTime.textContent = startCount;
+  clearInterval(intervalId);
+});
+GetTime.addEventListener("click", () => {
+  let p = document.createElement("p");
+  p.innerText = `The stop time is at ${startCount}`;
+  stopValues.append(p);
+});
+ClearTime.addEventListener("click", () => {
+  stopValues.innerHTML = "";
+});
